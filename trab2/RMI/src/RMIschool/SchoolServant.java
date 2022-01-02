@@ -24,9 +24,15 @@ public class SchoolServant extends UnicastRemoteObject implements School {
 		materias = new Vector<Materia>();
 	}
 	public boolean addAluno ( Materia m , People p) throws RemoteException {
+		for(int i =0 ; i < materias.size() ; i++) {
+			if(materias.get(i).getName().equals(m.getName())) {
+				Vector<People> alunos =  materias.get(i).getAlunos();
+				alunos.add(p);
+				materias.get(i).setAlunos(alunos);
+				
+			}
+		}
 		
-		return true;
-	}
 	public void addMateria(Materia m ) throws RemoteException {
 			materias.add(m);
 	}
