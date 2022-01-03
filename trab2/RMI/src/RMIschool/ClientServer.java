@@ -28,11 +28,16 @@ public class ClientServer{
         		aSchool.addMateria(pt); // Adicionando Materia
                 Vector<?> mt = aSchool.getAllDisc(); // Vendo Quatidade de materia
       			
-                System.out.println("Numero de Matérias "+ mt.size());
+                System.out.println("Numero de MatÃ©rias "+ mt.size());
       			for( int i =0 ; i <mt.size() ; i++ ) {
-      				System.out.println("Nome da Materia " + mt.get(i).getName());
+      				Materia nm =  (Materia)mt.get(i);
+      				System.out.println("Nome da Materia " + nm.getName());
       			}
       			
+      			
+      			Aluno a = new Aluno();
+      			a.setName("Arthur");
+      			aSchool.addAluno( pt, a);
       			mt =   aSchool.getAllAlunos( pt);
       			
       			System.out.println("Numero de Alunos da materia " + pt.getName() +" "+ mt.size());
@@ -42,14 +47,9 @@ public class ClientServer{
       			
       			mt = aSchool.getAllDisc();
       			
-      			System.out.println("Numero de Matérias "+ mt.size());
+      			System.out.println("Numero de MatÃ©rias "+ mt.size());
       			
-      			aSchool.addMateria("Ingles");
-      			
-      			Aluno a = new Aluno();
-      			a.setName("Arthur");
-      			
-      			aSchool.addAluno( aSchool.getMateria("Ingles"), a);	      			
+      				      			
       			
 
       			mt =  aSchool.getAllAlunos(aSchool.getMateria("Ingles"));
